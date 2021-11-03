@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>List of Photos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let photo of photos">
+                <td>{{photo.id}}</td>
+                <td>{{photo.title}}</td>
+                <td>
+                    <button class="btn btn-primary">Refresh</button>&nbsp;&nbsp;
+                    <button class="btn btn-danger" (click)="showDialog()">Delete</button>&nbsp;&nbsp;
+                    <refresh-button  (click)="onSubmit()" [spin]="spinLoader"></refresh-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Please Wait. </p>  
+</ngx-spinner> 
+<app-confirm-dialog></app-confirm-dialog>
